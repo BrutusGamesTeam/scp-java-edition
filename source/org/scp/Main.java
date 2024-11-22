@@ -84,7 +84,7 @@ public class Main
             glfwGetWindowSize(window, pushWidth, pushHeight);
 
             // Obtenha a Resolução do Monitor Primário
-            GLFWVidMode videoMode = glfwGetVideoMode(gglfwGetPrimaryonitor());
+            GLFWVidMode videoMode = glfwGetVideoMode(glfwGetPrimaryonitor());
 
             // Tamanho Total da Janela
             int totalWidth = (videoMode.width() - pushWidth.get(0)) / 2;
