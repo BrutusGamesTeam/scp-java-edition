@@ -43,7 +43,7 @@ public class Main
         if(!glfwInit())
         {
             // Lance uma Exceção de Estado Ilegal
-            throw new IllegalStateException("Infelizmente, não foi possível inicializar o GLFW");
+            throw new IllegalStateException("Infelizmente, não foi possível inicializar o GLFW.");
         }
 
         // Configura o GLFW
@@ -58,7 +58,7 @@ public class Main
         if(window == NULL)
         {
             // Lance uma Exceção do Runtime
-            throw new RuntimeException("Desculpe, mas foi impossível criar a janela");
+            throw new RuntimeException("Desculpe, mas foi impossível criar a janela.");
         }
 
         // Configura uma Callback para o Teclado
@@ -68,6 +68,11 @@ public class Main
             {
                 // Define se a Janela deve Fechar
                 glfwSetWindowShouldClose(window, true);
+            }
+            else if(key == GLFW_KEY_APOSTROPHE && action == GLFW_PRESS)
+            {
+                // Imprima uma Mensagem de Testes
+                System.out.println("Mensagem de testes, nada aqui!");
             }
         });
 
@@ -131,6 +136,8 @@ public class Main
     public static void main(String[] args)
     {
         // Crie uam nova Instância da Classe Principal
-        new Main().run();
+        Main main = new Main();
+        
+        main.run();
     }
 }
