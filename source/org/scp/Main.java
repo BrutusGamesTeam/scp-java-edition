@@ -31,6 +31,10 @@ public class Main
     {
         // Imprime as Mensagens no Console
         System.out.println("/ S.C.P - Java Edition /");
+
+        // Inicializa o Fluxo de Jogo
+        init();
+        loop();
     }
 
     // Inicialize apenas em uma Única Fotograma
