@@ -9,9 +9,9 @@ import org.scp.api.java.Transform;
 // Classe da Câmera Tri-Dimensional (Lado do Cliente)
 public class Camera3D extends Instance3D
 {
-	// Campos Importantes
-	
-	// Buffer da Tela
+    // Campos Importantes
+    
+    // Buffer da Tela
     public ScreenBuffer camera_myBuffer = null;
 
     // Transformação da Câmera
