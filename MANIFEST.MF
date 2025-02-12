@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
 Main-Class: org.scp.Main
-Class-Path: lib/lwjgl3.jar lib/lwjgl-glfw.jar lib/lwjgl-opengl.jar lib/lwjgl-stb.jar lib/lwjgl-jemalloc.jar
+Class-Path: lib/lwjgl.jar lib/lwjgl-glfw.jar lib/lwjgl-opengl.jar lib/lwjgl-stb.jar
