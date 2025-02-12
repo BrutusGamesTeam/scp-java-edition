@@ -17,7 +17,7 @@ import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 // Classe Principal do Jogo
-public class Main
+public final class Main
 {
     // Campos Importantes
 
@@ -30,7 +30,8 @@ public class Main
     public void run()
     {
         // Imprime as Mensagens no Console
-        System.out.println("/ S.C.P - Java Edition /");
+        System.out.println("> S.C.P - Java Edition");
+        System.out.println("> Obrigado por testar nosso jogo!");
 
         // Inicializa o Fluxo de Jogo
         init();
@@ -80,7 +81,7 @@ public class Main
             }
         });
 
-        // Tente Obter a Pilha do Fio para Puxar um novo Quadro
+        // Tente obter a Pilha do Fio de Execução para Puxar um novo Quadro
         try(MemoryStack stack = stackPush())
         {
             // Largura do Quadro Puxado
