@@ -9,9 +9,9 @@ import org.scp.api.java.Transform;
 // Classe da Câmera Tri-Dimensional (Lado do Cliente)
 public class Camera3D extends Instance3D
 {
-    // Campos
-
-    // Buffer da Tela
+	// Campos Importantes
+	
+	// Buffer da Tela
     public ScreenBuffer camera_myBuffer = null;
 
     // Transformação da Câmera
@@ -23,37 +23,37 @@ public class Camera3D extends Instance3D
     public Camera3D(ScreenBuffer buffer, Transform transform)
     {
         // Definição dos Campos
-        this.camera_myBuffer = buffer;       // Buffer de Tela
+        this.camera_myBuffer = buffer; // Buffer de Tela
         this.camera_myTransform = transform; // Transformação
     }
 
-    // Funções
+    // Funções Importantes
 
     // Obtenha o Buffer da Tela
     public ScreenBuffer camera_getBuffer()
     {
-        // Retorne o Valor
+        // Retorne o Valor do Buffer de Tela atual
         return this.camera_myBuffer;
     }
 
     // Mude o Buffer da Tela
     public void camera_setBuffer(String value)
     {
-        // Altere o Valor
+        // Altere o Valor do Buffer de Tela atual
         this.camera_myBuffer = value;
     }
 
     // Obtenha a Transforação da Câmera
     public Transform camera_getTransform()
     {
-        // Retorne o Valor
+        // Retorne o Valor de Transformação
         return this.camera_myTransform;
     }
 
     // Mude a Transformação da Câmera
     public void camera_setTransform(Transform value)
     {
-        // Altere o Valor
+        // Altere o Valor de Transformação
         this.camera_myTransform = value;
     }
 }
