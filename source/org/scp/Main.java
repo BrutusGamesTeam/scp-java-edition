@@ -141,7 +141,8 @@ public class Main
     {
         // Crie uam nova Instância da Classe Principal
         Main main = new Main();
-        
+
+        // Execute o Jogo
         main.run();
     }
 }
