@@ -8,11 +8,6 @@ on:
         required: true
         default: "1.00.00"
         type: string
-      debug-mode:
-        description: "Modo de Testes"
-        required: false
-        default: "false"
-        type: boolean
 
 jobs:
   build:
@@ -26,14 +21,18 @@ jobs:
         with:
           distribution: "temurin"
           java-version: "22"
+      - name: Definição de Variáveis de Ambiente
+        run: |
+         echo 'BUILD_VERSION=${{ inputs.build-version }}' >> $GITHUB_ENV
+         echo 'JAR_FILE_NAME=scp-java-edition-${{ inputs.build-version }}.jar' >> $GITHUB_ENV
       - name: Compilação do Código e Montagem do JAR
         run: |
          mkdir -p bin
          javac -d bin Main.java
          mkdir -p dist
-         jar cfe dist/scp-java-edition-build.jar Main -C bin .
+         jar cfe dist/${{ env.JAR_FILE_NAME }} Main -C bin .
       - name: Publicação de Artefato
         uses: actions/upload-artifact@v4
         with:
           name: scp-java-edition-build
-          path: dist/scp-java-edition-build.jar
+          path: dist/${{ env.JAR_FILE_NAME }}
