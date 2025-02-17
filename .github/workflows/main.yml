@@ -28,7 +28,7 @@ jobs:
       - name: Compilação do Código e Montagem do JAR
         run: |
          mkdir -p bin
-         javac -d bin Main.java
+         javac -d bin source/org/scp/Main.java
          mkdir -p dist
          jar cfe dist/${{ env.JAR_FILE_NAME }} Main -C bin .
       - name: Publicação de Artefato
