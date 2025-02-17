@@ -30,7 +30,7 @@ jobs:
          mkdir -p bin
          javac -d bin source/org/scp/Main.java
          mkdir -p dist
-         jar cfe dist/${{ env.JAR_FILE_NAME }} Main -C bin .
+         jar cfe dist/${{ env.JAR_FILE_NAME }} MANIFEST.MF -C bin .
       - name: Publicação de Artefato
         uses: actions/upload-artifact@v4
         with:
