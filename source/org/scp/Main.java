@@ -19,12 +19,12 @@ import static org.lwjgl.system.MemoryUtil.*;
 // Classe Principal do Jogo
 public final class Main
 {
-    // Campos Importantes
+    // Campos Exclusívos da Classe
 
     // Manipulador da Janela
-    public long window;
+    private long window;
 
-    // Funções Importantes
+    // Funções Declaradas
 
     // Execute o Jogo
     public void run()
@@ -33,13 +33,13 @@ public final class Main
         System.out.println("> S.C.P - Java Edition");
         System.out.println("> Obrigado por testar nosso jogo!");
 
-        // Inicializa o Fluxo de Jogo
+        // Inicializa o Estado de Fluxo do Jogo
         init();
         loop();
     }
 
-    // Inicialize apenas em uma Única Fotograma
-    public void init()
+    // Inicialize apenas em um Único Quadro
+    private void init()
     {
         // Configura uma Callback de Erro
         GLFWErrorCallback.createPrint(System.err).set();
@@ -51,15 +51,15 @@ public final class Main
             throw new IllegalStateException("Infelizmente, não foi possível inicializar o GLFW.");
         }
 
-        // Configura o GLFW
-        glfwDefaultWindowHints(); // Use as Hints Padrões do GLFW
-        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // não Mostre a Janela após a Criação
-        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Define que a Janela não Redimensione
+        // Configuração do GLFW
+        glfwDefaultWindowHints(); // Use as Indicações Padronizadas do GLFW
+        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // Não Mostre a Janela após a Criação
+        glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Não Permite que a Janela seja Redimensionada
 
         // Criação da Janela
         window = glfwCreateWindow(800, 600, "S.C.P - Java Edition", NULL, NULL);
 
-        // Verifica se a Janela é Nula
+        // Cheque se a Janela é Nula
         if(window == NULL)
         {
             // Lance uma Exceção do Runtime
@@ -77,7 +77,7 @@ public final class Main
             else if(key == GLFW_KEY_APOSTROPHE && action == GLFW_PRESS)
             {
                 // Imprima uma Mensagem de Testes
-                System.out.println("Mensagem de testes, nada aqui!");
+                System.out.println("Isto é uma mensagem de testes, nada de mais!");
             }
         });
 
@@ -100,27 +100,27 @@ public final class Main
             int totalWidth = (videoMode.width() - pushWidth.get(0)) / 2;
             int totalHeight = (videoMode.height() - pushHeight.get(0)) / 2;
 
-            // Centralize a Janela
+            // Centralize a Janela em Relação ao Monitor
             glfwSetWindowPos(window, totalWidth, totalHeight);
-        } // o Quadro da Pilha é Estourado Automaticamente
+        } // O Quadro da Pilha é Liberado Automaticamente
 
-        // Cria o Contexto do OpenGL
+        // Cria o Contexto da Biblioteca de Gráficos Abertos
         glfwMakeContextCurrent(window);
 
-        // Ativa a Sincronização Vertical
+        // Habilite a Sincronização Vertical
         glfwSwapInterval(1);
 
-        // faz a Janela Visivel
+        // Faz a Janela Visivel
         glfwShowWindow(window);
     }
 
     // Repete o Código em todas as Fotogramas
-    public void loop()
+    private void loop()
     {
-        // Cria as Capacidades do OpenGL
+        // Cria as Capacidades da Biblioteca de Gráficos Abertos
         GL.createCapabilities();
 
-        // Limpa a Cor
+        // Limpa o Quadro com uma Cor
         glClearColor(1f, 0f, 0f, 0f);
 
         // Execute o Laço de Renderização até Pressionar a Tecla ESC
@@ -129,10 +129,10 @@ public final class Main
             // Limpa o Buffer do Quadro
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            // Troque os Buffers
+            // Troque os Buffers de Memória da Janela
             glfwSwapBuffers(window);
 
-            // Crie um Poll de Eventos, Permitindo Callbacks
+            // Crie um Cíclo de Eventos, Permitindo assim as Callbacks
             glfwPollEvents();
         }
     }
@@ -140,10 +140,10 @@ public final class Main
     // Função Principal
     public static void main(String[] args)
     {
-        // Crie uam nova Instância da Classe Principal
+        // Crie uma nova Instância da Classe Principal
         Main main = new Main();
 
-        // Execute o Jogo
+        // Execute o Estado de Jogo
         main.run();
     }
 }
