@@ -1,0 +1,40 @@
+name: S.C.P - Java Edition (para dispositivos Windows e Linux)
+
+on:
+  workflow_dispatch:
+    inputs:
+      build-version:
+        description: "Versão do Jogo"
+        required: true
+        default: "1.00.00"
+        type: string
+      debug-mode:
+        description: "Modo de Testes"
+        required: false
+        default: "false"
+        type: boolean
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cheque de Repositório
+        uses: actions/checkout@v4
+      - name: Configuração do Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: "termurin"
+          version: "22"
+      - name: Compilação do Código e Montagem do JAR
+        run: |
+         mkdir -p bin
+         javac -d bin Main.java
+         cd ..
+         mkdir -p dist
+         jar cfe dist/scp-java-edition-build.jar Main -C bin .
+      - name: Publicação de Artefato
+        uses: actions/upload-artifact@v3
+        with:
+          name: scp-java-edition-build
+          path: dist/scp-java-edition-build.jar
