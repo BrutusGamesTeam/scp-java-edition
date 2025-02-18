@@ -24,13 +24,13 @@ jobs:
       - name: Definição de Variáveis de Ambiente
         run: |
          echo 'BUILD_VERSION=${{ inputs.build-version }}' >> $GITHUB_ENV
-         echo 'JAR_FILE_NAME=scp-java-edition-${{ inputs.build-version }}.jar' >> $GITHUB_ENV
+         echo 'JAR_FILE_NAME=dist/scp-java-edition-${{ inputs.build-version }}.jar' >> $GITHUB_ENV
       - name: Compilação do Código e Montagem do JAR
         run: |
          mkdir -p bin
          javac -cp "lib/*" -d bin "source/org/scp/Main.java"
          mkdir -p dist
-         jar cfm dist/${{ env.JAR_FILE_NAME }} MANIFEST.MF -C bin .
+         jar cfm ${{ env.JAR_FILE_NAME }} MANIFEST.MF -C bin .
       - name: Publicação de Artefato
         uses: actions/upload-artifact@v4
         with:
