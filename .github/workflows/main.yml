@@ -8,11 +8,9 @@ on:
         required: true
         default: "1.00.00"
         type: string
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Cheque de Repositório
         uses: actions/checkout@v4
@@ -25,12 +23,25 @@ jobs:
         run: |
          echo 'BUILD_VERSION=${{ inputs.build-version }}' >> $GITHUB_ENV
          echo 'JAR_FILE_NAME=dist/scp-java-edition-${{ inputs.build-version }}.jar' >> $GITHUB_ENV
+      - name: Descompactação das Dependências
+        run: |
+         mkdir -p bin/lib
+         for JAR in lib/*; do
+           [ -f "$JAR" ] || continue
+           unzip -o "$JAR" -d bin/lib
+           echo "Processo de descompactar as dependências foi concluido com sucesso."
+         done
       - name: Compilação do Código e Montagem do JAR
         run: |
-         mkdir -p bin
          javac -cp "lib/*" -d bin "source/org/scp/Main.java"
          mkdir -p dist
          jar cfm ${{ env.JAR_FILE_NAME }} MANIFEST.MF -C bin .
+      - name: Verificação da Criação Correta do JAR
+        run: |
+         if [ ! -f "${{ env.JAR_FILE_NAME }}" ]; then
+           echo "Infelizmente não foi possível validar o arquivo JAR."
+           exit 1
+         fi
       - name: Publicação de Artefato
         uses: actions/upload-artifact@v4
         with:
