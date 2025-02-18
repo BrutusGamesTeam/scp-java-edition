@@ -29,10 +29,9 @@ jobs:
         run: |
          mkdir -p bin
          javac -cp "lib/*" -d bin "source/org/scp/Main.java"
-         mkdir -p dist
-         jar cfm MANIFEST.MF dist/${{ env.JAR_FILE_NAME }} -C bin . -C lib .
+         jar cfm MANIFEST.MF ${{ env.JAR_FILE_NAME }} -C bin . -C lib .
       - name: Publicação de Artefato
         uses: actions/upload-artifact@v4
         with:
           name: scp-java-edition-build
-          path: dist/${{ env.JAR_FILE_NAME }}
+          path: ${{ env.JAR_FILE_NAME }}
