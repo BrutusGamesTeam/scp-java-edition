@@ -21,8 +21,8 @@ public class Item extends Entity
     public Item(Runnable onLeftClick, Runnable onRightClick)
     {
         // Mudança de Eventos
-        this.item_leftClickEvent = onLeftClick;
-        this.item_rightClickEvent = onRightClick;
+        this.item_leftClickEvent = (onLeftClick != null ? onLeftClick : () -> {});
+        this.item_rightClickEvent = (onRightClick != null ? onRightClick : () -> {});
     }
 
     // Funções Declaradas
@@ -31,27 +31,27 @@ public class Item extends Entity
     public Runnable item_getLeftEvent()
     {
         // Retorne o Evento Atual
-        return item_leftClickEvent;
+        return (item_leftClickEvent != null ? item_leftClickEvent : () -> {});
     }
 
     // Obtém o Evento de Clique Direito
     public Runnable item_getRightEvent()
     {
         // Retorne o Evento Atual
-        return item_rightClickEvent;
+        return (item_rightClickEvent != null ? item_leftClickEvent : () -> {});
     }
 
     // Mude o Evento de Clique Esquerdo
     public void item_setLeftEvent(Runnable value)
     {
         // Mude o Evento Atual
-        this.item_leftClickEvent = value;
+        this.item_leftClickEvent = (value != null ? value : () -> {});
     }
 
     // Mude o Evento de Clique Direito
     public void item_setRightEvent(Runnable value)
     {
         // Mude o Evento Atual
-        this.item_rightClickEvent = value;
+        this.item_rightClickEvent = (value != null ? value : () -> {});
     }
 }
