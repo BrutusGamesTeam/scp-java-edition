@@ -5,7 +5,7 @@ package org.scp.api.java;
 import org.scp.api.java.basic.Entity;
 
 // Classe Responsável pela Criação de Itens
-public class Item extends Enity
+public class Item extends Entity
 {
     // Campos Exclusívos da Classe
 
