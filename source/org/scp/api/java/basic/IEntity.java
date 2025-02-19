@@ -1,6 +1,9 @@
 // Pacote do Código
 package org.scp.api.java.basic;
 
+// Importações Explícitas
+import org.scp.api.java.basic.Entity;
+
 // Interface Responsável por Permitir a Manipulação de Entidades
 public interface IEntity
 {
