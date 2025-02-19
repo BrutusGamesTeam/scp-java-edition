@@ -10,7 +10,7 @@ public enum SCPObjectClass
     // Euclídeo: Exigem um Cuidado Intermediário ao Manipular
     EUCLID,
 
-    // Keter (do Indonédio: "Ter"): Extremamente Difíceis de se Manipular
+    // Keter (do Indonésio: "Ter"): Extremamente Difíceis de se Manipular
     KETER,
 
     // Apocalíptico: Não devem ser Contidas devido seu Risco de Destruição Planetária
@@ -19,7 +19,7 @@ public enum SCPObjectClass
     // Thaumiel: Úteis na Contenção de Anomalias, Principalmente em Contra-Ataques
     THAUMIEL,
 
-    // Neutralizado: Extintas que foram Perdidas ou Radicalizadas com Sucesso
+    // Neutralizado: Foram Perdidas ou Radicalizadas com Sucesso
     NEUTRALIZED,
 
     // Desconhecido: Não há Enquadramendo Claro de qual Classe deve-se Colocar
