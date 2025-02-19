@@ -55,14 +55,14 @@ public final class Main
             String message = (description != NULL ? GLFWErrorCallback.getDescription(description) : "Erro não especificado na descrição");
 
             // Imprime a Menssagem no Console
-            System.err.println("Houve uma falha ao executar o jogo: " + message + ".");
+            System.err.println("> Houve uma falha ao executar o jogo: " + message + ".");
         });
 
         // Verifica se o GLFW não Inicializou
         if(!glfwInit())
         {
             // Lance uma Exceção de Estado Ilegal
-            throw new IllegalStateException("Infelizmente, não foi possível inicializar o GLFW.");
+            throw new IllegalStateException("> Infelizmente, não foi possível inicializar o GLFW.");
         }
 
         // Configuração do GLFW
@@ -77,7 +77,7 @@ public final class Main
         if(window == NULL)
         {
             // Lance uma Exceção do Runtime
-            throw new RuntimeException("Desculpe, mas foi impossível criar a janela.");
+            throw new RuntimeException("> Desculpe, mas foi impossível criar a janela.");
         }
 
         // Configura uma Callback para o Teclado
@@ -91,7 +91,7 @@ public final class Main
             else if(key == GLFW_KEY_APOSTROPHE && action == GLFW_PRESS)
             {
                 // Imprima uma Mensagem de Testes
-                System.out.println("Isto é uma mensagem de testes, nada de mais!");
+                System.out.println("> Isto é uma mensagem de testes, nada de mais!");
             }
         });
 
