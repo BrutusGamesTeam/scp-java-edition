@@ -51,7 +51,10 @@ public final class Main
     {
         // Configura uma Callback de Erro
         glfwSetErrorCallback((error, description) -> {
+            // Campo Temporário para Armazenar a Descrição da Callback de Erro
             String message = (description != NULL ? GLFWErrorCallback.getDescription(description) : "Erro não especificado na descrição");
+
+            // Imprime a Menssagem no Console
             System.err.println("Houve uma falha ao executar o jogo: " + message + ".");
         });
 
