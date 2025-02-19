@@ -36,13 +36,23 @@ public final class Main
         // Inicializa o Estado de Fluxo do Jogo
         init();
         loop();
+
+        // Processo de Destruir o Manipulador de Janela
+        glfwFreeCallbacks(window);
+        glfwDestroyWindow(window);
+
+        // Encerre o GLFW
+        glfwTerminate();
+        glfwSetErrorCallback(null).free();
     }
 
     // Inicialize apenas em um Único Quadro
     private void init()
     {
         // Configura uma Callback de Erro
-        GLFWErrorCallback.createPrint(System.err).set();
+        glfwSetErrorCallback((error, description) -> {
+            System.err.println("Houve uma falha ao executar o jogo: " + GLFWErrorCallback.getDescription(description));
+        });
 
         // Verifica se o GLFW não Inicializou
         if(!glfwInit())
