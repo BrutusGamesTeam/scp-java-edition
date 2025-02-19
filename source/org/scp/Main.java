@@ -96,20 +96,20 @@ public final class Main
         try(MemoryStack stack = stackPush())
         {
             // Largura do Quadro Puxado
-            IntBuffer pushWidth = stack.mallocInt(1); // Número Inteiro
+            int[] width = new int[1]; // Array de Número Inteiro
 
             // Altura do Quadro Puxado
-            IntBuffer pushHeight = stack.mallocInt(1); // Número Inteiro
+            int[] height = new int[1]; // Array de Número Inteiro
 
             // Obtenha o Tamanho atual da Janela
-            glfwGetWindowSize(window, pushWidth, pushHeight);
+            glfwGetWindowSize(window, width, height);
 
             // Obtenha a Resolução do Monitor Primário
             GLFWVidMode videoMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 
             // Tamanho Total da Janela
-            int totalWidth = (videoMode.width() - pushWidth.get(0)) / 2;
-            int totalHeight = (videoMode.height() - pushHeight.get(0)) / 2;
+            int totalWidth = (videoMode.width() - width[0]) / 2;
+            int totalHeight = (videoMode.height() - height[0]) / 2;
 
             // Centralize a Janela em Relação ao Monitor
             glfwSetWindowPos(window, totalWidth, totalHeight);
@@ -137,8 +137,8 @@ public final class Main
         // Execute o Laço de Renderização até Pressionar a Tecla ESC
         while(!glfwWindowShouldClose(window))
         {
-            // Limpa o Buffer do Quadro
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            // Execute a Função de Renderização
+            render();
 
             // Troque os Buffers de Memória da Janela
             glfwSwapBuffers(window);
@@ -146,6 +146,13 @@ public final class Main
             // Crie um Cíclo de Eventos, Permitindo assim as Callbacks
             glfwPollEvents();
         }
+    }
+
+    // Função de Renderização do Fluxo de Jogo
+    private void render()
+    {
+        // Limpa o Buffer de Quadro
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
     // Função Principal
