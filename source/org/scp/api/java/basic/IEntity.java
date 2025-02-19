@@ -3,6 +3,7 @@ package org.scp.api.java.basic;
 
 // Importações Explícitas
 import org.scp.api.java.basic.Entity;
+import org.scp.api.java.basic.Item;
 
 // Interface Responsável por Permitir a Manipulação de Entidades
 public interface IEntity
@@ -16,8 +17,8 @@ public interface IEntity
     public void entity_onKill(Entity victim);
 
     // Chamado quando a Entidade Encontra um Alvo
-    public void entity_onFindTarget(Entity target);
+    public boolean entity_onFindTarget(Entity target);
 
     // Chamado quando a Entidade Persegue o Alvo
-    public void entity_onChaseTarget(Entity target);
+    public boolean entity_onChaseTarget(Entity target);
 }
