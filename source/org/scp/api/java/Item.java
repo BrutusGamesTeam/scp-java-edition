@@ -31,14 +31,14 @@ public class Item extends Entity
     public Runnable item_getLeftEvent()
     {
         // Retorne o Evento Atual
-        return (item_leftClickEvent != null ? item_leftClickEvent : () -> {});
+        return item_leftClickEvent;
     }
 
     // Obtém o Evento de Clique Direito
     public Runnable item_getRightEvent()
     {
         // Retorne o Evento Atual
-        return (item_rightClickEvent != null ? item_leftClickEvent : () -> {});
+        return item_rightClickEvent;
     }
 
     // Mude o Evento de Clique Esquerdo
