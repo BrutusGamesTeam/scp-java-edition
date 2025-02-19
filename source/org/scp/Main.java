@@ -132,7 +132,7 @@ public final class Main
         GL.createCapabilities();
 
         // Limpa o Quadro com uma Cor
-        glClearColor(1f, 0f, 0f, 0f);
+        glClearColor(0f, 0f, 0f, 0f);
 
         // Execute o Laço de Renderização até Pressionar a Tecla ESC
         while(!glfwWindowShouldClose(window))
