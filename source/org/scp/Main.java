@@ -51,7 +51,8 @@ public final class Main
     {
         // Configura uma Callback de Erro
         glfwSetErrorCallback((error, description) -> {
-            System.err.println("Houve uma falha ao executar o jogo: " + GLFWErrorCallback.getDescription(description));
+            String message = (description != NULL ? GLFWErrorCallback.getDescription(description));
+            System.err.println("Houve uma falha ao executar o jogo: " + message);
         });
 
         // Verifica se o GLFW não Inicializou
