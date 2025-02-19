@@ -25,10 +25,10 @@ jobs:
          echo 'JAR_FILE_NAME=dist/scp-java-edition-${{ inputs.build-version }}.jar' >> $GITHUB_ENV
       - name: Descompactação das Dependências
         run: |
-         mkdir -p bin/lib
+         mkdir -p bin
          for JAR in lib/*; do
            [ -f "$JAR" ] || continue
-           unzip -o "$JAR" -d bin/lib
+           unzip -o "$JAR" -d bin
            echo "Processo de descompactar as dependências foi concluido com sucesso."
          done
       - name: Compilação do Código e Montagem do JAR
