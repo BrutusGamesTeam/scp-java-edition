@@ -3,7 +3,7 @@ package org.scp.api.java.basic;
 
 // Importações Explícitas
 import org.scp.api.java.basic.Entity;
-import org.scp.api.java.basic.Item;
+import org.scp.api.java.Item;
 
 // Interface Responsável por Permitir a Manipulação de Entidades
 public interface IEntity
