@@ -2,8 +2,6 @@
 package org.scp;
 
 // Importações Explícitas
-import java.nio.*;
-
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
