@@ -30,12 +30,15 @@ public final class Main
     public void run()
     {
         // Imprime as Mensagens no Console
-        System.out.println("> S.C.P - Java Edition");
-        System.out.println("> Obrigado por testar nosso jogo!");
+        System.out.println("[Inicialização] > S.C.P - Java Edition");
+        System.out.println("[Agradecimentos] > Obrigado por testar nosso jogo!");
 
         // Inicializa o Estado de Fluxo do Jogo
         init();
         loop();
+
+        // Imprima uma Mensagem Final
+        System.out.println("[Finalização] > Encerrando o GLFW.");
 
         // Processo de Destruir o Manipulador de Janela
         glfwFreeCallbacks(window);
@@ -55,14 +58,14 @@ public final class Main
             String message = (description != NULL ? GLFWErrorCallback.getDescription(description) : "Erro não especificado na descrição");
 
             // Imprime a Menssagem no Console
-            System.err.println("> Houve uma falha ao executar o jogo: " + message + ".");
+            System.err.println("[Erro] > Houve uma falha ao executar o jogo: " + message + ".");
         });
 
         // Verifica se o GLFW não Inicializou
         if(!glfwInit())
         {
             // Lance uma Exceção de Estado Ilegal
-            throw new IllegalStateException("> Infelizmente, não foi possível inicializar o GLFW.");
+            throw new IllegalStateException("[Exceçao] > Infelizmente, não foi possível inicializar o GLFW.");
         }
 
         // Configuração do GLFW
@@ -91,7 +94,7 @@ public final class Main
             else if(key == GLFW_KEY_APOSTROPHE && action == GLFW_PRESS)
             {
                 // Imprima uma Mensagem de Testes
-                System.out.println("> Isto é uma mensagem de testes, nada de mais!");
+                System.out.println("[Mensagem] > Isto é uma mensagem de testes, nada de mais!");
             }
         });
 
