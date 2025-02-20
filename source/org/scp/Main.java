@@ -38,8 +38,8 @@ public final class Main
 
         // Inicializa o Estado de Fluxo do Jogo
         init();
-        loop();
         menuLoop();
+        loop();
         cleanup();
     }
 
@@ -178,7 +178,7 @@ public final class Main
         glColor3f(1f, 1f, 1f);
 
         // Rasteriza a Posição de Desenho
-        glRasterPos3f(-0.1f, 0.1f);
+        glRasterPos3f(-0.1f, 0f);
 
         // Cria um Laço de Impressão de Caractéres
         for(char character : "|| S.C.P - Java Edition ||".toCharArray())
