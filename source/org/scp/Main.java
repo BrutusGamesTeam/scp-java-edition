@@ -24,6 +24,9 @@ public final class Main
     // Manipulador da Janela
     private long window;
 
+    // Determinador de Cardápio Principal
+    private boolean isMenuState = true;
+
     // Funções Declaradas
 
     // Execute o Jogo
@@ -36,17 +39,8 @@ public final class Main
         // Inicializa o Estado de Fluxo do Jogo
         init();
         loop();
-
-        // Imprima uma Mensagem Final
-        System.out.println("[Finalização] > Encerrando o GLFW.");
-
-        // Processo de Destruir o Manipulador de Janela
-        glfwFreeCallbacks(window);
-        glfwDestroyWindow(window);
-
-        // Encerre o GLFW
-        glfwTerminate();
-        glfwSetErrorCallback(null).free();
+        menuLoop();
+        cleanup();
     }
 
     // Inicialize apenas em um Único Quadro
@@ -80,7 +74,7 @@ public final class Main
         if(window == NULL)
         {
             // Lance uma Exceção do Runtime
-            throw new RuntimeException("> Desculpe, mas foi impossível criar a janela.");
+            throw new RuntimeException("[Exceção] > Desculpe, mas foi impossível criar a janela.");
         }
 
         // Configura uma Callback para o Teclado
@@ -143,10 +137,13 @@ public final class Main
         // Execute o Laço de Renderização até Pressionar a Tecla ESC
         while(!glfwWindowShouldClose(window))
         {
+            // Limpa o Buffer de Quadro com a Reserva de Cor e Profundidade
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            
             // Execute a Função de Renderização
             render();
 
-            // Troque os Buffers de Memória da Janela
+            // Troque as Reservas de Memória da Janela
             glfwSwapBuffers(window);
 
             // Crie um Cíclo de Eventos, Permitindo assim as Callbacks
@@ -154,11 +151,63 @@ public final class Main
         }
     }
 
+    // Função de Laço do Cardápio Principal
+    private void menuLoop()
+    {
+        // Enquanto o Laço do Cardápio Principal estiver Marcado
+        while(isMenuState && !glfwWindowShouldClose(window))
+        {
+            // Limpa o Reserva de Quadro com a Reserva de Cor e Profundidade
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+            // Execute a Função de Renderizar o Cardápio Principal
+            menuRender();
+
+            // Troque as Reservas de Memória da Janela
+            glfwSwapBuffers(window);
+
+            // Crie um Cíclo de Eventos, Permitindo assim as Callbacks
+            glfwPollEvents();
+        }
+    }
+
+    // Função de Renderização do Cardápio Principal
+    private void menuRender()
+    {
+        // Mude a Cor de Desenho
+        glColor3f(1f, 1f, 1f);
+
+        // Rasteriza a Posição de Desenho
+        glRasterPos3f(-0.1f, 0.1f);
+
+        // Cria um Laço de Impressão de Caractéres
+        for(char character : "|| S.C.P - Java Edition ||".toCharArray())
+        {
+            // Execute a Função de Desenhar o Texto de Título
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, character);
+        }
+    }
+
     // Função de Renderização do Fluxo de Jogo
     private void render()
     {
         // Limpa o Buffer de Quadro
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT);
+    }
+
+    // Função de Finalizar o Fluxo de Jogo
+    private void cleanup()
+    {
+        // Imprima uma Mensagem Final
+        System.out.println("[Finalização] > Encerrando o GLFW.");
+
+        // Processo de Destruir o Manipulador de Janela
+        glfwFreeCallbacks(window);
+        glfwDestroyWindow(window);
+
+        // Encerre o GLFW
+        glfwTerminate();
+        glfwSetErrorCallback(null).free();
     }
 
     // Função Principal
