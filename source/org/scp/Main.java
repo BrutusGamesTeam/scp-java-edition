@@ -1,11 +1,15 @@
 // Pacote de Código
 package org.scp;
 
-// Importações Explícitas
+// Importações Implícitas
+import java.nio.*;
+import java.nio.files.*;
+
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
 import org.lwjgl.opengl.*;
 import org.lwjgl.system.*;
+import org.lwjgl.stb.*;
 
 // Importações Estáticas
 import static org.lwjgl.glfw.Callbacks.*;
@@ -14,10 +18,19 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
+// Importações Explícitas
+import java.io.IOException;
+
 // Classe Principal do Jogo
 public final class Main
 {
     // Campos Exclusívos da Classe
+
+    // Textura da Fonte
+    private int fontTexture;
+
+    // Dados da Fonte
+    private STBTTFontBakedChar.Buffer cdata;
 
     // Manipulador da Janela
     private long window;
@@ -26,6 +39,20 @@ public final class Main
     private boolean isMenuState = true;
 
     // Funções Declaradas
+
+    // Carregue uma Fonte pelos Arquivos
+    private void loadFont(String filePath)
+    {
+        // Tente fazer o Carregamento da Fonte
+        try
+        {
+            // Reserva de Bytes da Fonte
+            ByteBuffer fontBuffer = BufferUtils.createByteBuffer(512 * 512);
+
+            // Array de Bytes Carregados
+            byte[] fontData = File
+        }
+    }
 
     // Execute o Jogo
     public void run()
