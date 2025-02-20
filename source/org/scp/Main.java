@@ -29,7 +29,7 @@ public final class Main
     // Textura da Fonte
     private int fontTexture;
 
-    // Dados da Fonte
+    // Dados dos Caractéres da Fonte
     private STBTTFontBakedChar.Buffer cdata;
 
     // Manipulador da Janela
@@ -49,8 +49,31 @@ public final class Main
             // Reserva de Bytes da Fonte
             ByteBuffer fontBuffer = BufferUtils.createByteBuffer(512 * 512);
 
-            // Array de Bytes Carregados
-            byte[] fontData = File
+            // Array de Bytes Carregados dos Dados da Fonte e a Reserva
+            byte[] fontData = Files.readAllBytes(Paths.get(fontPath));
+            ByteBuffer buffer = BufferUtils.createByteBuffer(fontData.length).put(fontData);
+
+            // Vira a Reserva Temporária
+            buffer.flip();
+
+            // Mude o Valor dos Dados de Caracteres
+            cdata = STBTTBakedChar.malloc(96);
+
+            // Asse a Fonte de Formato Verdadeiro (TTF em Inglês)
+            STBTrueType.stbtt_BakeFontBitmap(buffer, 32, fontBuffer, 512, 512, 32, cdata);
+
+            // Carregue a Textura da Fonte
+            fontTexture = glGenTextures();
+
+            // Ligue a Textura da Fonte para o Uso em Texturas Bi-Dimensionais
+            glBindTexture(GL_TEXTURE_2D, fontTexture);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_ALPHA, 512, 512, 0, GL_ALPHA, GL_UNSIGNED_BYTE, fontTexture);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        }
+        catch(IOException e)
+        {
+            // Lance uma nova Exceção do Tempo de Execução
+            throw new RuntimeException("[Exceção] > Desculpe, mas infelizmente não foi possível carregar a textura.");
         }
     }
 
