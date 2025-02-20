@@ -40,6 +40,35 @@ public final class Main
 
     // Funções Declaradas
 
+    // Desenhe o Texto Solicitado
+    private void drawText(String text, int x, int y)
+    {
+        // Cria um Alinhamento de Texto
+        STBTTAlignedQuad q = STBTTAlignedQuad.malloc();
+
+        // Cria um Laço para Iterar sobre os Caractéres do Texto
+        for(char c : text.toCharArray())
+        {
+            // Cria um Texto com Fonte
+            STBTrueType.stbtt_GetBakedQuad(cdata, 512, 512, c - 32, q, null, true);
+
+            // Inicializa o Modo de Desenho com o Alinhamento
+            glBegin(GL_QUADS);
+
+            // Desenhe o Texto com as Coordenadas Solicitadas
+            glTexCoord2f(q.s0(), q.t0()); glVertex2f(x + q.x0(), y + q.y0());
+            glTexCoord2f(q.s1(), q.t0()); glVertex2f(x + q.x1(), y + q.y0());
+            glTexCoord2f(q.s1(), q.t1()); glVertex2f(x + q.x1(), y + q.y1());
+            glTexCoord2f(q.s0(), q.t1()); glVertex2f(x + q.x0(), y + q.y1());
+
+            // Termina o Modo de Desenho com Alinhamento
+            glEnd();
+
+            // Mude a Coordenada X do Próximo Caractére
+            x +=q.x1() - q.x0();
+        }
+    }
+
     // Carregue uma Fonte pelos Arquivos
     private void loadFont(String filePath)
     {
@@ -223,18 +252,20 @@ public final class Main
     // Função de Renderização do Cardápio Principal
     private void menuRender()
     {
+        // Habilita a Textura Bi-Dimensional
+        glEnable(GL_TEXTURE_2D);
+
         // Mude a Cor de Desenho
         glColor3f(1f, 1f, 1f);
 
-        // Rasteriza a Posição de Desenho
-        glRasterPos2f(-0.1f, 0f);
+        // Ligue a Textura Bi-Dimensional para Desenhar-la
+        glBindTexture(GL_TEXTURE_2D, fontTexture);
 
-        // Cria um Laço de Impressão de Caractéres
-        for(char character : "|| S.C.P - Java Edition ||".toCharArray())
-        {
-            // Execute a Função de Desenhar o Texto de Título
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, character);
-        }
+        // Cria um Texto para Desenhar
+        drawText("|| S.C.P - Java Edition ||", -0.75f, 0f);
+
+        // Desabilita a Textura Bi-Dimensional
+        glDisable(GL_TEXTURE_2D);
     }
 
     // Função de Renderização do Fluxo de Jogo
