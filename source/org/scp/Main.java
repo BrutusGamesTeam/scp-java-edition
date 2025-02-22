@@ -79,7 +79,7 @@ public final class Main
             ByteBuffer fontBuffer = BufferUtils.createByteBuffer(512 * 512);
 
             // Array de Bytes Carregados dos Dados da Fonte e a Reserva
-            byte[] fontData = Files.readAllBytes(Paths.get(fontPath));
+            byte[] fontData = Files.readAllBytes(Paths.get(filePath));
             ByteBuffer buffer = BufferUtils.createByteBuffer(fontData.length).put(fontData);
 
             // Vira a Reserva Temporária
@@ -102,7 +102,7 @@ public final class Main
         catch(IOException e)
         {
             // Lance uma nova Exceção do Tempo de Execução
-            throw new RuntimeException("[Exceção] > Desculpe, mas infelizmente não foi possível carregar a textura.");
+            throw new RuntimeException("[Exceção] > Desculpe, mas infelizmente não foi possível carregar a textura.", e);
         }
     }
 
