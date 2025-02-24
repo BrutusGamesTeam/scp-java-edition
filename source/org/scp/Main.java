@@ -65,7 +65,7 @@ public final class Main
             glEnd();
 
             // Mude a Coordenada X do Próximo Caractére
-            x +=q.x1() - q.x0();
+            x += q.x1() - q.x0();
         }
     }
 
