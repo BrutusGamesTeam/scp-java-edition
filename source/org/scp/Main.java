@@ -40,8 +40,8 @@ public final class Main
 
     // Funções Declaradas
 
-    // Desenhe o Texto Solicitado
-    private void drawText(String text, long x, long y)
+    // Desenhe o Texto Solicitado com as Coordenadas
+    private void drawText(String text, float[] x, float[] y)
     {
         // Cria um Alinhamento de Texto
         STBTTAlignedQuad q = STBTTAlignedQuad.malloc();
