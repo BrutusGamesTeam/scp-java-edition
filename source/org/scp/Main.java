@@ -3,7 +3,7 @@ package org.scp;
 
 // Importações Implícitas
 import java.nio.*;
-import java.nio.files.*;
+import java.nio.file.*;
 
 import org.lwjgl.*;
 import org.lwjgl.glfw.*;
