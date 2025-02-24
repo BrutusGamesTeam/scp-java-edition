@@ -266,7 +266,7 @@ public final class Main
         glBindTexture(GL_TEXTURE_2D, fontTexture);
 
         // Cria um Texto para Desenhar
-        drawText("|| S.C.P - Java Edition ||", 2l, 2l);
+        drawText("|| S.C.P - Java Edition ||", {1}, {1});
 
         // Desabilita a Textura Bi-Dimensional
         glDisable(GL_TEXTURE_2D);
