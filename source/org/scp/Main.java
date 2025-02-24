@@ -111,7 +111,7 @@ public final class Main
     {
         // Imprime as Mensagens no Console
         System.out.println("[Inicialização] > S.C.P - Java Edition");
-        System.out.println("[Agradecimentos] > Obrigado por testar a fase atual de nosso jogo!");
+        System.out.println("[Agradecimentos] > Agradecemos por testar a fase atual de nosso jogo! Esperamos um ótimo dia para o senhor!");
 
         // Inicializa o Estado de Fluxo do Jogo
         init();
@@ -130,14 +130,14 @@ public final class Main
             String message = (description != NULL ? GLFWErrorCallback.getDescription(description) : "Erro não especificado na descrição");
 
             // Imprime a Mensagem no Console
-            System.err.println("[Erro] > Houve uma falha ao executar o jogo: " + message + ".");
+            System.err.println("[Erro] > Lamentamos que houve uma falha ao executar o jogo: " + message + ".");
         });
 
         // Verifica se o GLFW não Inicializou
         if(!glfwInit())
         {
             // Lance uma Exceção de Estado Ilegal
-            throw new IllegalStateException("[Exceçao] > Infelizmente, não foi possível inicializar o GLFW.");
+            throw new IllegalStateException("[Exceçao] > Infelizmente não foi possível inicializar o GLFW.");
         }
 
         // Configuração do GLFW
@@ -146,7 +146,7 @@ public final class Main
         glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Não Permite que a Janela seja Redimensionada
 
         // Criação da Janela
-        window = glfwCreateWindow(800, 600, "| [S.C.P] - Java Edition |", NULL, NULL);
+        window = glfwCreateWindow(800, 600, "|| [S.C.P] - Java Edition ||", NULL, NULL);
 
         // Cheque se a Janela é Nula
         if(window == NULL)
@@ -166,7 +166,7 @@ public final class Main
             else if(key == GLFW_KEY_APOSTROPHE && action == GLFW_PRESS)
             {
                 // Imprima uma Mensagem de Testes
-                System.out.println("[Mensagem] > Isto é uma mensagem de testes, nada de mais!");
+                System.out.println("[Mensagem] > Isto é uma mensagem de testes, se divirta!");
             }
         });
 
@@ -206,13 +206,13 @@ public final class Main
     // Repete o Código em todas as Fotogramas
     private void loop()
     {
-        // Cria as Capacidades da Biblioteca de Gráficos Abertos
+        // Inicializa as Capacidades da Biblioteca Aberta de Gráficos (OpenGL)
         GL.createCapabilities();
 
-        // Limpa o Quadro com uma Cor
+        // Limpa o Quadro com uma Cor Preta
         glClearColor(0f, 0f, 0f, 0f);
 
-        // Execute o Laço de Renderização até Pressionar a Tecla ESC
+        // Execute o Laço de Renderização até Pressionar a Tecla de Escape (ESC)
         while(!glfwWindowShouldClose(window))
         {
             // Limpa o Buffer de Quadro com a Reserva de Cor e Profundidade
@@ -232,7 +232,7 @@ public final class Main
     // Função de Laço do Cardápio Principal
     private void menuLoop()
     {
-        // Enquanto o Laço do Cardápio Principal estiver Marcado
+        // Enquanto o Laço da Tela Principal estiver Marcado
         while(isMenuState && !glfwWindowShouldClose(window))
         {
             // Limpa o Reserva de Quadro com a Reserva de Cor e Profundidade
@@ -249,13 +249,13 @@ public final class Main
         }
     }
 
-    // Função de Renderização do Cardápio Principal
+    // Função de Renderização da Tela Principal
     private void menuRender()
     {
         // Habilita a Textura Bi-Dimensional
         glEnable(GL_TEXTURE_2D);
 
-        // Mude a Cor de Desenho
+        // Mude a Cor de Desenho para Branco
         glColor3f(1f, 1f, 1f);
 
         // Ligue a Textura Bi-Dimensional para Desenhar-la
@@ -278,8 +278,8 @@ public final class Main
     // Função de Finalizar o Fluxo de Jogo
     private void cleanup()
     {
-        // Imprima uma Mensagem Final
-        System.out.println("[Finalização] > Encerrando o GLFW.");
+        // Imprima uma Mensagem Semi-Final
+        System.out.println("[Finalização] > Encerrando o GLFW, aguarde.");
 
         // Processo de Destruir o Manipulador de Janela
         glfwFreeCallbacks(window);
@@ -288,6 +288,9 @@ public final class Main
         // Encerre o GLFW
         glfwTerminate();
         glfwSetErrorCallback(null).free();
+
+        // Imprima a Mensagem Final
+        System.out.println("[Encerramento] > O GLFW foi totalmente finalizado, tenha um bom dia!");
     }
 
     // Função Principal
