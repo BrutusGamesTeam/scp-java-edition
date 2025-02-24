@@ -24,7 +24,7 @@ import java.io.IOException;
 // Classe Principal do Jogo
 public final class Main
 {
-    // Campos Exclusívos da Classe
+    // Campos Exclusivos da Classe
 
     // Textura da Fonte
     private int fontTexture;
@@ -46,7 +46,7 @@ public final class Main
         // Cria um Alinhamento de Texto
         STBTTAlignedQuad q = STBTTAlignedQuad.malloc();
 
-        // Cria um Laço para Iterar sobre os Caractéres do Texto
+        // Cria um Laço para Iterar sobre os Caracteres do Texto
         for(char c : text.toCharArray())
         {
             // Cria um Texto com Fonte
@@ -102,7 +102,7 @@ public final class Main
         catch(IOException e)
         {
             // Lance uma nova Exceção do Tempo de Execução
-            throw new RuntimeException("[Exceção] > Desculpe, mas infelizmente não foi possível carregar a textura.", e);
+            throw new RuntimeException("[Exceção] > Lamentamos lhe informar mas infelizmente não foi possível carregar a textura.", e);
         }
     }
 
@@ -111,7 +111,7 @@ public final class Main
     {
         // Imprime as Mensagens no Console
         System.out.println("[Inicialização] > S.C.P - Java Edition");
-        System.out.println("[Agradecimentos] > Obrigado por testar nosso jogo!");
+        System.out.println("[Agradecimentos] > Obrigado por testar a fase atual de nosso jogo!");
 
         // Inicializa o Estado de Fluxo do Jogo
         init();
@@ -129,7 +129,7 @@ public final class Main
             // Campo Temporário para Armazenar a Descrição da Callback de Erro
             String message = (description != NULL ? GLFWErrorCallback.getDescription(description) : "Erro não especificado na descrição");
 
-            // Imprime a Menssagem no Console
+            // Imprime a Mensagem no Console
             System.err.println("[Erro] > Houve uma falha ao executar o jogo: " + message + ".");
         });
 
