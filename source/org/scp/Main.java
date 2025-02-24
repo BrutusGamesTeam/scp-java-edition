@@ -29,7 +29,7 @@ public final class Main
     // Textura da Fonte
     private int fontTexture;
 
-    // Dados dos Caractéres da Fonte
+    // Dados dos Caracteres da Fonte
     private STBTTFontBakedChar.Buffer cdata;
 
     // Manipulador da Janela
