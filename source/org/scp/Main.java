@@ -146,7 +146,7 @@ public final class Main
         glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Não Permite que a Janela seja Redimensionada
 
         // Criação da Janela
-        window = glfwCreateWindow(800, 600, "S.C.P - Java Edition", NULL, NULL);
+        window = glfwCreateWindow(800, 600, "| [S.C.P] - Java Edition |", NULL, NULL);
 
         // Cheque se a Janela é Nula
         if(window == NULL)
