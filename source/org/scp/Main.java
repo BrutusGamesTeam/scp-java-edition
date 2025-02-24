@@ -196,7 +196,7 @@ public final class Main
         // Cria o Contexto da Biblioteca de Gráficos Abertos
         glfwMakeContextCurrent(window);
 
-        // Habilite a Sincronização Vertical
+        // Habilite a Sincronização Vertical (Evitando uma Renderização "Rasgada")
         glfwSwapInterval(1);
 
         // Faz a Janela Visivel
