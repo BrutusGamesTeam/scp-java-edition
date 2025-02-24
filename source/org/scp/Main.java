@@ -50,7 +50,7 @@ public final class Main
         for(char c : text.toCharArray())
         {
             // Cria um Texto com Fonte
-            STBTruetype.stbtt_GetBakedQuad(cdata, 512, 512, x, y, q, null);
+            STBTruetype.nstbtt_GetBakedQuad(cdata, 480, 320, c - 32, x, y, q, false);
 
             // Inicializa o Modo de Desenho com o Alinhamento
             glBegin(GL_QUADS);
