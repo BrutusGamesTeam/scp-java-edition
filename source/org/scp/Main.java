@@ -41,7 +41,7 @@ public final class Main
     // Funções Declaradas
 
     // Desenhe o Texto Solicitado
-    private void drawText(String text, float x, float y)
+    private void drawText(String text, long x, long y)
     {
         // Cria um Alinhamento de Texto
         STBTTAlignedQuad q = STBTTAlignedQuad.malloc();
@@ -50,7 +50,7 @@ public final class Main
         for(char c : text.toCharArray())
         {
             // Cria um Texto com Fonte
-            STBTruetype.stbtt_GetBakedQuad(cdata, 512, 512, c - 32, q, null, true);
+            STBTruetype.stbtt_GetBakedQuad(cdata, 512, 512, x, y, q, null);
 
             // Inicializa o Modo de Desenho com o Alinhamento
             glBegin(GL_QUADS);
@@ -88,7 +88,7 @@ public final class Main
             // Mude o Valor dos Dados de Caracteres
             cdata = STBTTBakedChar.malloc(96);
 
-            // Asse a Fonte de Formato Verdadeiro (TTF em Inglês)
+            // Pré-Processa a Fonte de Formato Verdadeiro (TTF em Inglês)
             STBTruetype.stbtt_BakeFontBitmap(buffer, 32, fontBuffer, 512, 512, 32, cdata);
 
             // Carregue a Textura da Fonte
@@ -262,7 +262,7 @@ public final class Main
         glBindTexture(GL_TEXTURE_2D, fontTexture);
 
         // Cria um Texto para Desenhar
-        drawText("|| S.C.P - Java Edition ||", -0.75f, 0f);
+        drawText("|| S.C.P - Java Edition ||", 2l, 2l);
 
         // Desabilita a Textura Bi-Dimensional
         glDisable(GL_TEXTURE_2D);
