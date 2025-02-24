@@ -41,10 +41,14 @@ public final class Main
     // Funções Declaradas
 
     // Desenhe o Texto Solicitado com as Coordenadas
-    private void drawText(String text, float[] x, float[] y)
+    private void drawText(String text, float[] ax, float[] ay)
     {
         // Cria um Alinhamento de Texto
         STBTTAlignedQuad q = STBTTAlignedQuad.malloc();
+
+        // Coordenadas na Tela
+        float x = ax[0];
+        float y = ay[0];
 
         // Cria um Laço para Iterar sobre os Caracteres do Texto
         for(char c : text.toCharArray())
