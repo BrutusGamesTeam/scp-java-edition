@@ -50,7 +50,7 @@ public final class Main
         for(char c : text.toCharArray())
         {
             // Cria um Texto com Fonte
-            STBTrueType.stbtt_GetBakedQuad(cdata, 512, 512, c - 32, q, null, true);
+            STBTruetype.stbtt_GetBakedQuad(cdata, 512, 512, c - 32, q, null, true);
 
             // Inicializa o Modo de Desenho com o Alinhamento
             glBegin(GL_QUADS);
@@ -89,7 +89,7 @@ public final class Main
             cdata = STBTTBakedChar.malloc(96);
 
             // Asse a Fonte de Formato Verdadeiro (TTF em Inglês)
-            STBTrueType.stbtt_BakeFontBitmap(buffer, 32, fontBuffer, 512, 512, 32, cdata);
+            STBTruetype.stbtt_BakeFontBitmap(buffer, 32, fontBuffer, 512, 512, 32, cdata);
 
             // Carregue a Textura da Fonte
             fontTexture = glGenTextures();
