@@ -44,7 +44,7 @@ jobs:
          fi
       - name: Teste da Versão Construída do JAR
         run: |
-         java -jar "bin/${{ env.JAR_FILE_NAME }}"
+         java -jar "${{ env.JAR_FILE_NAME }}"
       - name: Publicação de Artefato
         uses: actions/upload-artifact@v4
         with:
