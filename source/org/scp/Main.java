@@ -116,7 +116,7 @@ public final class Main
 
         // Inicializa o Estado de Fluxo do Jogo
         init();
-        loadFont("resources/fonts/belaonima-regular.ttf");
+        loadFont("resources/fonts/Belaonima-Regular.ttf");
         menuLoop();
         loop();
         cleanup();
@@ -138,7 +138,7 @@ public final class Main
         if(!glfwInit())
         {
             // Lance uma Exceção de Estado Ilegal
-            throw new IllegalStateException("[Exceçao] > Infelizmente não foi possível inicializar o GLFW.");
+            throw new IllegalStateException("[Exceção] > Infelizmente não foi possível inicializar o GLFW.");
         }
 
         // Configuração do GLFW
