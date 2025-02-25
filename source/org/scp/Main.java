@@ -93,7 +93,7 @@ public final class Main
             cdata = STBTTBakedChar.malloc(96);
 
             // Pré-Processa a Fonte de Formato Verdadeiro (TTF em Inglês)
-            STBTruetype.stbtt_GetBakedQuad(cdata, 480, 320, c - 32, x, y, q, false);
+            STBTruetype.stbtt_GetBakedQuad(cdata, 480, 320, c - 32, ax, ay, q, false);
 
             // Carregue a Textura da Fonte
             fontTexture = glGenTextures();
