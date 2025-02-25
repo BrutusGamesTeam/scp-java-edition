@@ -143,7 +143,7 @@ public final class Main
 
         // Configuração do GLFW
         glfwDefaultWindowHints(); // Use as Indicações Padronizadas do GLFW
-        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // Não Mostre a Janela após a Criação
+        glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE); // Não deve Mostrar a Janela após a Criação
         glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Não Permite que a Janela seja Redimensionada
 
         // Criação da Janela
@@ -171,7 +171,7 @@ public final class Main
             }
         });
 
-        // Tente obter a Pilha do Fio de Execução para Puxar um novo Quadro
+        // Tente obter a Pilha da Memória para Puxar um novo Quadro
         try(MemoryStack stack = stackPush())
         {
             // Largura do Quadro Puxado
@@ -192,7 +192,7 @@ public final class Main
 
             // Centralize a Janela em Relação ao Monitor
             glfwSetWindowPos(window, totalWidth, totalHeight);
-        } // O Quadro da Pilha é Liberado Automaticamente
+        } // O Quadro da Pilha de Memória é Liberado Automaticamente
 
         // Cria o Contexto da Biblioteca de Gráficos Abertos
         glfwMakeContextCurrent(window);
