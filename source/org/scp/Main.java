@@ -116,7 +116,7 @@ public final class Main
 
         // Inicializa o Estado de Fluxo do Jogo
         init();
-        loadFont("fonts/belaonima-regular.ttf");
+        loadFont("resources/fonts/belaonima-regular.ttf");
         menuLoop();
         loop();
         cleanup();
