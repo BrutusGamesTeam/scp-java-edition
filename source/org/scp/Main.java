@@ -68,7 +68,7 @@ public final class Main
             // Termina o Modo de Desenho com Alinhamento
             glEnd();
 
-            // Mude a Coordenada X do Próximo Caractére
+            // Mude a Coordenada X do Próximo Caractere
             x += q.x1() - q.x0();
         }
     }
