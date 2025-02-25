@@ -53,8 +53,8 @@ public final class Main
         // Cria um Laço para Iterar sobre os Caracteres do Texto
         for(char c : text.toCharArray())
         {
-            // Cria um Texto com Fonte
-            STBTruetype.nstbtt_GetBakedQuad(cdata, 480, 320, c - 32, x, y, q, false);
+            // Cria um Texto com Fonte de Formato Verdadeiro (TTF em Inglês)
+            STBTruetype.stbtt_GetBakedQuad(cdata, 480, 320, c - 32, ax, ay, q, false);
 
             // Inicializa o Modo de Desenho com o Alinhamento
             glBegin(GL_QUADS);
@@ -93,7 +93,7 @@ public final class Main
             cdata = STBTTBakedChar.malloc(96);
 
             // Pré-Processa a Fonte de Formato Verdadeiro (TTF em Inglês)
-            STBTruetype.stbtt_BakeFontBitmap(buffer, 32, fontBuffer, 512, 512, 32, cdata);
+            STBTruetype.stbtt_GetBakedQuad(cdata, 480, 320, c - 32, x, y, q, false);
 
             // Carregue a Textura da Fonte
             fontTexture = glGenTextures();
