@@ -17,8 +17,8 @@ jobs:
       - name: Configuração do Java
         uses: actions/setup-java@v3
         with:
-          distribution: "temurin"
-          java-version: "22"
+          distribution: "semeru"
+          java-version: "17"
       - name: Definição de Variáveis de Ambiente
         run: |
          echo 'BUILD_VERSION=${{ inputs.build-version }}' >> $GITHUB_ENV
