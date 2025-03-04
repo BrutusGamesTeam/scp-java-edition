@@ -86,7 +86,7 @@ public final class Main
             byte[] fontData = Files.readAllBytes(Paths.get(filePath));
             ByteBuffer buffer = BufferUtils.createByteBuffer(fontData.length).put(fontData);
 
-            // Vira a Reserva Temporária
+            // Atualiza a Reserva Temporária
             buffer.flip();
 
             // Mude o Valor dos Dados de Caracteres
