@@ -6,3 +6,6 @@ Veja a esta página oficial da WIKI [aqui](https://github.com/BrutusGamesTeam/S-
 
 ## Criação de CPacks (Communitary Packages)
 Se você é programador em Java, provavelmente vai gostar [disso aqui]()
+
+### Importante
+Este projeto é fortemente inspirado no universo nomeado _**SCP Foundation**_, cujo está sob a licença _**CC-BY-SA 3.0**_
