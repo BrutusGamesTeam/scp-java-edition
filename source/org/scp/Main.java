@@ -122,7 +122,7 @@ public final class Main
         cleanup();
     }
 
-    // Inicialize apenas em um Único Quadro
+    // Inicialize apenas em uma Única Atualização
     private void init()
     {
         // Configura uma Callback de Erro
@@ -204,7 +204,7 @@ public final class Main
         glfwShowWindow(window);
     }
 
-    // Repete o Código em todas as Fotogramas
+    // Repete o Código em todos os Quadros processados pela Unidade Gráfica
     private void loop()
     {
         // Inicializa as Capacidades da Biblioteca Aberta de Gráficos (OpenGL)
