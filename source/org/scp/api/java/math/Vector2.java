@@ -14,6 +14,19 @@ public class Vector2
     // Coordenada Y do Vetor
     private float y;
 
+    // Construtores Básicos
+
+    /**
+     * Cria uma noa Instância do Vetor
+     * @param xAxis O Eixo X do novo Vetor
+     * @param yAxis O Eixo Y do novo Vetor
+     */
+    public Vector2(float xAxis, float yAxis)
+    {
+        this.x = xAxis;
+        this.y = yAxis;
+    }
+
     // Funções Declaradas
     
     /**
@@ -23,8 +36,10 @@ public class Vector2
      */
     public float vector_getDistanceTo(Vector2 other)
     {
-        float 
-        return 0f;
+        float dx = this.vector_getXCoord() - other.vector_getXCoord();
+        float dy = this.vector_getYCoord() - other.vector_getYCoord();
+        
+        return (float)(Math.sqrt(dx * dx + dy * dy));
     }
 
     /**
@@ -46,7 +61,7 @@ public class Vector2
     }
 
     /**
-     * Obtém o Valor da Coordenada X
+     * Mude o Valor da Coordenada X
      * @param value A nova Coordenada X deste Vetor
      */
     public void vector_setXCoord(float value)
@@ -55,7 +70,7 @@ public class Vector2
     }
 
     /**
-     * Obtém o Valor da Coordenada Y
+     * Mude o Valor da Coordenada Y
      * @param value A nova Coordenada Y deste Vetor
      */
     public void vector_setYCoord(float value)
