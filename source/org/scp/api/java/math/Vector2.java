@@ -17,7 +17,7 @@ public class Vector2
     // Construtores Básicos
 
     /**
-     * Cria uma noa Instância do Vetor
+     * Cria uma nova Instância do Vetor
      * @param xAxis O Eixo X do novo Vetor
      * @param yAxis O Eixo Y do novo Vetor
      */
