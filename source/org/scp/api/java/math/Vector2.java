@@ -93,8 +93,8 @@ public class Vector2
         // Valor de Magnitude do Vetor
         float magnitude = (float)(Math.sqrt(this.x * x + this.y * y));
 
-        // Caso o Vetor não seja 0f
-        if(magnitude == 0f)
+        // Caso o Vetor não seja Próximo de 0f
+        if(magnitude <= EPSILON)
         {
             return new Vector2(0f, 0f);
         }
