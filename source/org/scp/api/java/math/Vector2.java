@@ -1,6 +1,9 @@
 // Pacote do Código
 package org.scp.api.java.math;
 
+// Importações Explícitas
+import java.util.Objects;
+
 /**
  * Vetor Bi-Dimensional Comum
  */
@@ -88,12 +91,12 @@ public class Vector2
         float magnitude = (float)(Math.sqrt(this.x * x + this.y * y));
 
         // Caso o Vetor não seja 0f
-        if(magnitude != 0f)
+        if(magnitude == 0f)
         {
-            return new Vector2(this.x / magnitude, this.y / magnitude);
+            return new Vector2(0f, 0f);
         }
 
-        return new Vector2(1f, 1f);
+        return new Vector2(this.x / magnitude, this.y / magnitude);
     }
 
     /**
@@ -103,10 +106,7 @@ public class Vector2
     public void vector_increment(Vector2 other)
     {
         // Caso o Vetor seja Inválido
-        if(other == null)
-        {
-            throw new NullPointerException("[Exceção] > Lamentamos informar mas o vetor incrementador está nulo.");
-        }
+        Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
         
         // Incrementação
         x += other.vector_getXCoord();
@@ -120,10 +120,7 @@ public class Vector2
     public void vector_decrement(Vector2 other)
     {
         // Caso o Vetor seja Inválido
-        if(other == null)
-        {
-            throw new NullPointerException("[Exceção] > Lamentamos informar mas o vetor decrementador está nulo.");
-        }
+        Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
         
         // Decrementação
         x -= other.vector_getXCoord();
@@ -137,10 +134,7 @@ public class Vector2
     public void vector_multiply(Vector2 other)
     {
         // Caso o Vetor seja Inválido
-        if(other == null)
-        {
-            throw new NullPointerException("[Exceção] > Lamentamos informar mas o vetor multiplicador está nulo.");
-        }
+        Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
         
         // Multiplicação
         x *= other.vector_getXCoord();
@@ -154,9 +148,12 @@ public class Vector2
     public void vector_divide(Vector2 other)
     {
         // Caso o Vetor seja Inválido
-        if(other == null)
+        Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
+
+        // Evita a Divisão por 0
+        if(other.vector_getXCoord() == 0 || other.vector_getYCoord() == 0)
         {
-            throw new NullPointerException("[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
+            throw new ArithmeticException("[Exceção] > Infelizmente não pode-se dividir um número por zero");
         }
         
         // Divisão
