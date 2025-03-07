@@ -11,6 +11,9 @@ public class Vector2
 {
     // Campos Exclusívos da Classe
 
+    // Fator de Épsilon
+    private static final float EPSILON = 1e-6f;
+
     // Coordenada X do Vetor
     private float x;
 
@@ -106,7 +109,7 @@ public class Vector2
     public void vector_increment(Vector2 other)
     {
         // Caso o Vetor seja Inválido
-        Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
+        Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor incrementador está nulo.");
         
         // Incrementação
         x += other.vector_getXCoord();
@@ -120,7 +123,7 @@ public class Vector2
     public void vector_decrement(Vector2 other)
     {
         // Caso o Vetor seja Inválido
-        Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
+        Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor decrementador está nulo.");
         
         // Decrementação
         x -= other.vector_getXCoord();
@@ -134,7 +137,7 @@ public class Vector2
     public void vector_multiply(Vector2 other)
     {
         // Caso o Vetor seja Inválido
-        Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
+        Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor multiplicador está nulo.");
         
         // Multiplicação
         x *= other.vector_getXCoord();
