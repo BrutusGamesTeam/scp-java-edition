@@ -154,7 +154,7 @@ public class Vector2
         Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
 
         // Evita a Divisão por 0
-        if(other.vector_getXCoord() == 0 || other.vector_getYCoord() == 0)
+        if(Math.abs(other.x) <= EPSILON) || Math.abs(other.y) <= EPSILON)
         {
             throw new ArithmeticException("[Exceção] > Infelizmente não pode-se dividir um número por zero");
         }
@@ -162,5 +162,15 @@ public class Vector2
         // Divisão
         x /= other.vector_getXCoord();
         y /= other.vector_getYCoord();
+    }
+
+    /**
+     * Obtém uma Versão Textual (String) do Vetor
+     * @return A Versão do Vetor em Texto
+     */
+    @Override
+    public void toString()
+    {
+        return String.format("Vector2(%.3f, %.3f)", this.x, this.y);
     }
 }
