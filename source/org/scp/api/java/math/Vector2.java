@@ -154,7 +154,7 @@ public class Vector2
         Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
 
         // Evita a Divisão por 0
-        if(Math.abs(other.x) <= EPSILON) || Math.abs(other.y) <= EPSILON)
+        if(Math.abs(other.x) <= EPSILON || Math.abs(other.y) <= EPSILON)
         {
             throw new ArithmeticException("[Exceção] > Infelizmente não pode-se dividir um número por zero");
         }
