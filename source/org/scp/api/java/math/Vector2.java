@@ -77,4 +77,90 @@ public class Vector2
     {
         y = value;
     }
+
+    /**
+     * Normalize o Vetor Globalmente
+     * @return A Versão Normalizada deste Vetor
+     */
+    public Vector2 vector_getNormalized()
+    {
+        // Valor de Magnitude do Vetor
+        float magnitude = (float)(Math.sqrt(this.x * x + this.y * y));
+
+        // Caso o Vetor não seja 0f
+        if(magnitude != 0f)
+        {
+            return new Vector2(this.x / magnitude, this.y / magnitude);
+        }
+
+        return new Vector2(1f, 1f);
+    }
+
+    /**
+     * Incremente este Vetor com Outro
+     * @param other O Vetor que irá Incrementar este
+     */
+    public void vector_increment(Vector2 other)
+    {
+        // Caso o Vetor seja Inválido
+        if(other == null)
+        {
+            throw new NullPointerException("[Exceção] > Lamentamos informar mas o vetor incrementador está nulo.");
+        }
+        
+        // Incrementação
+        x += other.vector_getXCoord();
+        y += other.vector_getYCoord();
+    }
+
+    /**
+     * Decremente este Vetor com Outro
+     * @param other O Vetor que irá Decrementar este
+     */
+    public void vector_decrement(Vector2 other)
+    {
+        // Caso o Vetor seja Inválido
+        if(other == null)
+        {
+            throw new NullPointerException("[Exceção] > Lamentamos informar mas o vetor decrementador está nulo.");
+        }
+        
+        // Decrementação
+        x -= other.vector_getXCoord();
+        y -= other.vector_getYCoord();
+    }
+
+    /**
+     * Multiplica este Vetor com Outro
+     * @param other O Vetor que irá Multiplicar este
+     */
+    public void vector_multiply(Vector2 other)
+    {
+        // Caso o Vetor seja Inválido
+        if(other == null)
+        {
+            throw new NullPointerException("[Exceção] > Lamentamos informar mas o vetor multiplicador está nulo.");
+        }
+        
+        // Multiplicação
+        x *= other.vector_getXCoord();
+        y *= other.vector_getYCoord();
+    }
+
+    /**
+     * Divide este Vetor com Outro
+     * @param other O Vetor que irá Dividir este
+     */
+    public void vector_divide(Vector2 other)
+    {
+        // Caso o Vetor seja Inválido
+        if(other == null)
+        {
+            throw new NullPointerException("[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
+        }
+        
+        // Divisão
+        x /= other.vector_getXCoord();
+        y /= other.vector_getYCoord();
+    }
 }
