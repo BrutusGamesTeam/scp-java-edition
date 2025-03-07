@@ -169,7 +169,7 @@ public class Vector2
      * @return A Versão do Vetor em Texto
      */
     @Override
-    public void toString()
+    public String toString()
     {
         return String.format("Vector2(%.3f, %.3f)", this.x, this.y);
     }
