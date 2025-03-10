@@ -147,6 +147,7 @@ public class Vector2
     /**
      * Divide este Vetor com Outro
      * @param other O Vetor que irá Dividir este
+     * @throws ArithmeticException caso o Número seja Inválido (Zero ou Nulo)
      */
     public void vector_divide(Vector2 other)
     {
@@ -166,11 +167,23 @@ public class Vector2
 
     /**
      * Obtém uma Versão Textual (String) do Vetor
-     * @return A Versão do Vetor em Texto
+     * @return A Representação do Vetor em Texto
      */
     @Override
     public String toString()
     {
+        // Retorno da Representação em Texto
         return String.format("Vector2(%.3f, %.3f)", this.x, this.y);
+    }
+
+    /**
+     * Obtém um Código-Hash deste Vetor
+     * @return O Código-Hash que Representa o Vetor
+     */
+    @Override
+    public int hashCode()
+    {
+        // Retorno do Código-Hash em Número
+        return Objects.hash(x, y);
     }
 }
