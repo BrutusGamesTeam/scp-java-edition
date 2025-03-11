@@ -91,7 +91,7 @@ public class Vector2
     public Vector2 vector_getNormalized()
     {
         // Valor de Magnitude do Vetor
-        float magnitude = (float)(Math.sqrt(this.x * x + this.y * y));
+        float magnitude = this.vector_getDistanceTo(new Vector2(0f, 0f);
 
         // Caso o Vetor não seja Próximo de 0f
         if(magnitude <= EPSILON)
