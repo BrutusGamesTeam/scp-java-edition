@@ -23,7 +23,15 @@ public class Vector2
     // Construtores Básicos
 
     /**
-     * Cria uma nova Instância do Vetor
+     * Cria uma nova Instância do Vetor (Posição Zero)
+     */
+    public Vector2()
+    {
+        this(0f, 0f);
+    }
+
+    /**
+     * Cria uma nova Instância do Vetor (Posição Definida)
      * @param xAxis O Eixo X do novo Vetor
      * @param yAxis O Eixo Y do novo Vetor
      */
@@ -153,10 +161,10 @@ public class Vector2
         // Caso o Vetor seja Inválido
         Objects.requireNonNull(other, "[Exceção] > Lamentamos informar mas o vetor divisor está nulo.");
 
-        // Evita a Divisão por 0
-        if(other.vector_getXCoord() == 0 || other.vector_getYCoord() == 0)
+        // Evita a Divisão por 0 ou Valores Próximos
+        if(other.vector_getXCoord() < EPSILON || other.vector_getYCoord() < EPSILON)
         {
-            throw new ArithmeticException("[Exceção] > Infelizmente não pode-se dividir um número por zero");
+            throw new ArithmeticException("[Exceção] > Infelizmente não pode-se dividir um número por zero ou próximo");
         }
         
         // Divisão
