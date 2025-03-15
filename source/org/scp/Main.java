@@ -1,4 +1,4 @@
-// Pacote de Código
+// Pacote do Código
 package org.scp;
 
 // Importações Implícitas
