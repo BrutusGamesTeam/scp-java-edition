@@ -26,6 +26,9 @@ public final class Main
 {
     // Campos Exclusivos da Classe
 
+    // Tamanho da Janela
+    private int[] windowSize = {800,600};
+
     // Textura da Fonte
     private int fontTexture;
 
@@ -147,7 +150,7 @@ public final class Main
         glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE); // Não Permite que a Janela seja Redimensionada
 
         // Criação da Janela
-        window = glfwCreateWindow(800, 600, "|| [S.C.P] - Java Edition ||", NULL, NULL);
+        window = glfwCreateWindow(windowSize[0], windowSize[1], "|| [S.C.P] - Java Edition ||", NULL, NULL);
 
         // Cheque se a Janela é Nula
         if(window == NULL)
