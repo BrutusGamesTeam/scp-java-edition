@@ -12,7 +12,7 @@ public class Vector2
     // Campos Exclusívos da Classe
 
     // Fator de Épsilon
-    private static final float EPSILON = 1e-6f;
+    public final float EPSILON = 1e-6f;
 
     // Coordenada X do Vetor
     private float x;
