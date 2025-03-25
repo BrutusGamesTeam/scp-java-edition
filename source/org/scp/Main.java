@@ -111,7 +111,7 @@ public final class Main
     }
 
     // Execute o Jogo
-    public void run()
+    private void run()
     {
         // Imprime as Mensagens no Console
         System.out.println("[Inicialização] > S.C.P - Java Edition");
